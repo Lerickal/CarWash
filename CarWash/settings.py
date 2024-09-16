@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'CarWash.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newCarWashDB',  # The name of your MySQL database
+        'NAME': 'newCarWashdb',  # The name of your MySQL database
         'USER': 'root',  # Your MySQL username
         'PASSWORD': '',  # Your MySQL password (replace 'your_mysql_password')
         'HOST': 'localhost',  # Use '127.0.0.1' if necessary for local MySQL server
