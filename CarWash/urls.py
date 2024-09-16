@@ -20,7 +20,12 @@ Including another URLconf
 #from django.contrib import admin
 #from django.urls import path
 
+from django.urls import path
+from CarWashApp import views
+
 urlpatterns = [
     # Uncomment the next line to enable the admin:
     #path('admin/', admin.site.urls)
+    path('register/', views.register_car_wash, name='register_car_wash'),
+    path('success/', views.carwash_success, name='carwash_success'),
 ]

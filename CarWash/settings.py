@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import posixpath
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'CarWashApp'
 ]
 
 # Middleware framework
@@ -77,10 +82,20 @@ WSGI_APPLICATION = 'CarWash.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'newCarWashDB',  # The name of your MySQL database
+        'USER': 'root',  # Your MySQL username
+        'PASSWORD': '',  # Your MySQL password (replace 'your_mysql_password')
+        'HOST': 'localhost',  # Use '127.0.0.1' if necessary for local MySQL server
+        'PORT': '3306',  # Default MySQL port
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Enforces strict mode
+        },
     }
 }
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
